@@ -1,62 +1,60 @@
 const missionCards = [
   {
-    title: "Horn-Inflated Headlines",
+    title: "Burden of Bravado",
     body: (
       <>
-        Our newsroom covers stories like “Local Rhino Buys Sports Car, Realizes He <em>Is</em> the Sports Car.” Pulitzer
-        material? Probably.
+        When you are gifted with comically oversized confidence, you need friends who understand that swagger can feel like a gym workout. We chronicle the daily lift, tug, and tote of living large.
       </>
     ),
   },
   {
-    title: "Satirical Science",
+    title: "Chauffeur Confessions",
     body:
-      'We fact-check dubious research such as "Do Horn Sizes Correlate With Wi-Fi Signal?" Spoiler: the only bar we raise is for comedy.',
+      "Our investigative team rides shotgun with elite black-car drivers who multitask between navigating traffic and swiping through unsolicited glamour shots from their clientele.",
   },
   {
-    title: "Big Energy Advice",
+    title: "Safety, but Make It Saucy",
     body:
-      "Self-help columns teach rhinos how to channel their inner swagger into eco-friendly horn buffing and responsible mud-wallering.",
+      "We deliver tongue-in-cheek tips on weight distribution, supportive undergarments, and why scrolling through big-deal photo albums should never happen while chauffeuring anyone anywhere.",
   },
 ];
 
 const tallTales = [
   {
     label: "BREAKING",
-    headline:
-      '"Big Horn Energy" Festival Bans Tape Measures After Last Year\'s Ego Quake',
+    headline: 'Luxury Limo Lists to the Left After Client Requests "Extra Room"',
     body:
-      "Organizers insist the festival is about empowerment, not horn envy. Attendees report suspiciously large velvet ropes and mandatory affirmations before entering the mirror tent.",
+      "Witnesses say the chauffeur kept cool, counterbalancing with complimentary seltzer and a playlist titled \"Supportive Straps.\" No one was injured, though several egos required recalibration.",
   },
   {
     label: "EXCLUSIVE",
-    headline: 'Rhino CEO Announces "Size Matters" Sustainability Plan',
+    headline: 'Ride-Share App Adds "Hold My Bag" Feature for Heavy Hangers',
     body:
-      "The plan includes replacing corporate ladders with rampaging charges and a new recycling program for broken pedestals. Shareholders are horned for the future.",
+      "Beta testers rave about the velvet harnesses and ergonomic cradles, though drivers complain the in-app gallery of brag shots keeps dinging during rush hour.",
   },
   {
     label: "SCIENCE",
-    headline: "Study Finds 8 Out of 10 Rhinos Prefer Compliments Over Car Wax",
+    headline: "Study Confirms Flexing Burns More Calories Than Cardio",
     body:
-      "Researchers confirm that heartfelt praise outperforms shiny bumpers, though car wax still outranks podcasts about humility.",
+      "Researchers strapped pedometers to boastful commuters and discovered that hauling around exaggerated endowments qualifies as resistance training. Fitness influencers are conflicted.",
   },
 ];
 
 const columns = [
   {
-    title: "The Etiquette of Enormity",
+    title: "The Etiquette of Excess",
     body:
-      'Our advice columnist, Auntie Horn, addresses delicate dilemmas such as: "Is it rude to enter a room horn-first?" and "Should I RSVP \'yes\' to every arena opening?" Spoiler: confidence pairs well with good manners.',
+      'Columnist Auntie Horn (yes, she kept the pen name) explains how to acknowledge your admirable proportions without turning every doorway into slapstick. Hint: apologize to coffee tables before the collision.',
   },
   {
-    title: "Historical Hornography",
+    title: "Chauffeur Safety Briefings",
     body:
-      'We revisit the greatest myths of rhinoceros grandeur, from medieval bards who exaggerated their silhouettes to modern memes that claim rhinos invented the concept of "go big or go home." History is tall; our stories are taller.',
+      'Professional drivers share scripts for politely redirecting passengers who insist on swiping through heroic full-body photo shoots mid-traffic. Step one: eyes on the road, not the roll-out.',
   },
   {
     title: "Merch Table (Coming Soon)",
     body:
-      'Expect tasteful tees, commemorative coffee mugs, and novelty tape measures that max out at "Too Much." No actual anatomy, just bold design and bolder punchlines.',
+      'Expect ergonomic slings, souvenir foam supports, and novelty sunshades emblazoned with "Wide Load, Wider Smile." All humor, zero explicit content.',
   },
 ];
 
@@ -64,23 +62,23 @@ const faqs = [
   {
     question: "Is RhinoDicks.com safe for work?",
     answer:
-      "Absolutely. We trade in innuendo and oversized egos, not explicit visuals. It's satire, not safari smut.",
+      "Still mostly. We revel in comedic hyperbole about massive endowments and overworked chauffeurs, but we keep descriptions winking rather than explicit.",
     defaultOpen: true,
   },
   {
-    question: "Do you sell actual rhinoceros memorabilia?",
+    question: "Do you endorse distracted driving?",
     answer:
-      "Nope. We champion conservation and leave the real horns to real rhinos. Our merch is proudly fictional (for now).",
+      "Absolutely not. Every article reminds readers that scrolling through glamour shots while ferrying clients is a no-go. Fantasy big energy, real-world safety.",
   },
   {
     question: "Can I pitch a story?",
     answer:
-      "Yes! Send us your wildest tall tales, so long as they keep things playful and PG-13. If it involves puns, even better.",
+      "Yes! Send us your funniest accounts of burdensome bravado, chauffeur chronicles, or tips on carrying the load with pride. Keep it playful and consensual.",
   },
   {
-    question: "Why rhinos?",
+    question: "Why rhinos and limos?",
     answer:
-      "Because few creatures embody chaotic confidence like a rhinoceros. Also, the domain name was available and we couldn't resist.",
+      "Because few creatures embody chaotic confidence like a rhinoceros, and no vehicle knows discretion like a tinted town car. It's a match made in oversized heaven.",
   },
 ];
 
@@ -91,20 +89,17 @@ export default function HomePage() {
     <>
       <header className="hero">
         <div className="hero__content">
-          <p className="hero__tagline">
-            A SATIRICAL NEWSROOM FOR THE MOST OVERCOMPENSATING ANIMAL ON EARTH
-          </p>
+          <p className="hero__tagline">A SATIRICAL NEWSROOM FOR THE PERPETUALLY OVERPACKED</p>
           <h1 className="hero__title">RhinoDicks.com</h1>
           <p className="hero__subtitle">
-            We celebrate the majestic, massive, metaphorical might of the rhino horn. It's not what you think, but it's exactly
-            what you need.
+            We chronicle the comedic struggles of beings whose endowments are too legendary for standard seating. Think weight-lifting self-care tips, driver diaries, and ego-friendly ergonomics.
           </p>
           <a className="hero__cta" href="#latest">
             Read Today’s Exaggerations
           </a>
         </div>
         <div className="hero__badge">100% Horn-Free Content*</div>
-        <p className="hero__disclaimer">*No explicit anatomy, just big personalities.</p>
+        <p className="hero__disclaimer">*No explicit anatomy, just big personalities carrying big loads.</p>
       </header>
 
       <main>
@@ -112,9 +107,7 @@ export default function HomePage() {
           <div className="section__inner">
             <h2 className="section__title">The Mission</h2>
             <p>
-              RhinoDicks.com is the planet’s premier satire outlet dedicated to the colossal confidence of rhinoceroses
-              everywhere. We poke fun at bravado, overcompensation, and the myths of macho culture without ever getting graphic.
-              Think of us as the late-night monologue for creatures who believe their horn can solve anything.
+              RhinoDicks.com is the planet’s premier satire outlet dedicated to the colossal confidence of rhinoceroses and humans alike who find their gifts both glorious and gravity-heavy. We poke fun at swagger, the logistics of carrying it, and the chauffeurs tasked with keeping eyes on the road while fans keep sending proof.
             </p>
             <div className="mission__grid">
               {missionCards.map((card) => (
@@ -171,8 +164,7 @@ export default function HomePage() {
       <footer className="footer">
         <div className="footer__inner">
           <p>
-            RhinoDicks.com is a satirical publication. No rhinos were embarrassed in the making of this website, though several
-            insisted we note their horns are "even bigger in person."
+            RhinoDicks.com is a satirical publication. No rhinos were embarrassed in the making of this website, though several demanded lumbar support before interviews.
           </p>
           <p className="footer__links">
             <a href="mailto:tips@rhinodicks.com">Send a Tip</a>
@@ -182,7 +174,7 @@ export default function HomePage() {
             <a href="#faq">FAQ</a>
           </p>
           <p className="footer__copyright">
-            &copy; {currentYear} RhinoDicks.com &ndash; Horns high, humor higher.
+            &copy; {currentYear} RhinoDicks.com &ndash; Horns high, humor higher, hips stretched.
           </p>
         </div>
       </footer>
