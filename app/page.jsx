@@ -3,14 +3,15 @@ const missionCards = [
     title: "Burden of Bravado",
     body: (
       <>
-        When you are gifted with comically oversized confidence, you need friends who understand that swagger can feel like a gym workout. We chronicle the daily lift, tug, and tote of living large.
+        When your swagger requires wide-load permits, you need a comms team who understands brand lift. We chronicle the daily
+        logistics of living loud without knocking over the conference room fern.
       </>
     ),
   },
   {
     title: "Chauffeur Confessions",
     body:
-      "Our investigative team rides shotgun with elite black-car drivers who multitask between navigating traffic and swiping through unsolicited glamour shots from their clientele.",
+      "Our investigative unit rides shotgun with elite black-car drivers who multitask between defensive driving and declining unsolicited cloud-syncs of braggadocious photo dumps.",
   },
   {
     title: "Safety, but Make It Saucy",
@@ -40,6 +41,31 @@ const tallTales = [
   },
 ];
 
+const tickerItems = [
+  "#rd.com Trend Watch: Rhinodicks becomes the IT Channel's hottest inside joke",
+  "CloudOps declares \"rhinodicks\" an enterprise-grade status symbol",
+  "Limo unions demand ergonomic hazard pay for legendary loads",
+  "Analysts predict horn-shaped merch to outpace standard swag by Q4",
+];
+
+const cloudPerks = [
+  {
+    title: "Rhinodicks Cloud (Beta)",
+    copy:
+      "Spin up elastic bravado in seconds. Auto-scales with your ego and ships dashboards packed with tasteful innuendo instead of HR violations.",
+  },
+  {
+    title: "Load Balancer for Legends",
+    copy:
+      "Distribute that magnificent metaphorical traffic across supportive seating zones, chauffeur schedules, and ego-inflation stations.",
+  },
+  {
+    title: "Observability, but Thirsty",
+    copy:
+      "Telemetry traces boast levels, driver eye-rolls, and social sentiment for the #rd.com crowd. Alert fatigue cured with memes and ergonomic stretches.",
+  },
+];
+
 const columns = [
   {
     title: "The Etiquette of Excess",
@@ -58,9 +84,42 @@ const columns = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Gertie the Chauffeur",
+    quote:
+      "Since subscribing to Rhinodicks Cloud, I get predictive pings before a brag reel even hits AirDrop. My suspension thanks you.",
+  },
+  {
+    name: "Blaze, Sr. Swagger Engineer",
+    quote:
+      "Our IT channel finally has a satire site that speaks fluent innuendo without triggering Compliance. Rhinodicks is the release note I didn't know I needed.",
+  },
+  {
+    name: "Rhonda the Rhino Influencer",
+    quote:
+      "Booked solid for keynotes about weight distribution and workplace consent. The brand glow-up is immaculate.",
+  },
+];
+
+const releaseNotes = [
+  {
+    version: "v2.6.9",
+    summary: "Introduced auto-redaction so brag photos render as tasteful silhouettes. Added chauffeur stretch break reminders.",
+  },
+  {
+    version: "v2.5.0",
+    summary: "Deployed spicy satire dark mode with cloud fluff gradients. Patched bug where horn emojis kept animating suggestively.",
+  },
+  {
+    version: "v2.4.2",
+    summary: "Rolled out IT Channel glossary for newcomers who think Rhinodicks is a wildlife nonprofit. It is not.",
+  },
+];
+
 const faqs = [
   {
-    question: "Is RhinoDicks.com safe for work?",
+    question: "Is Rhinodicks.com safe for work?",
     answer:
       "Still mostly. We revel in comedic hyperbole about massive endowments and overworked chauffeurs, but we keep descriptions winking rather than explicit.",
     defaultOpen: true,
@@ -88,26 +147,70 @@ export default function HomePage() {
   return (
     <>
       <header className="hero">
+        <nav className="nav">
+          <div className="nav__brand">
+            <span aria-hidden>🦏</span>
+            <div>
+              <strong>Rhinodicks.com</strong>
+              <span>The IT Channel's favorite satire sandbox</span>
+            </div>
+          </div>
+          <ul className="nav__links">
+            <li>
+              <a href="#mission">Mission</a>
+            </li>
+            <li>
+              <a href="#latest">Tall Tales</a>
+            </li>
+            <li>
+              <a href="#cloud">Cloud Suite</a>
+            </li>
+            <li>
+              <a href="#faq">FAQ</a>
+            </li>
+          </ul>
+        </nav>
+
         <div className="hero__content">
           <p className="hero__tagline">A SATIRICAL NEWSROOM FOR THE PERPETUALLY OVERPACKED</p>
-          <h1 className="hero__title">RhinoDicks.com</h1>
+          <h1 className="hero__title">Rhinodicks.com</h1>
           <p className="hero__subtitle">
-            We chronicle the comedic struggles of beings whose endowments are too legendary for standard seating. Think weight-lifting self-care tips, driver diaries, and ego-friendly ergonomics.
+            A lovingly ludicrous media brand chronicling the mythical heft of rhinodicks &mdash; the industry term every IT reseller is suddenly using to describe outsized bravado and bandwidth.
           </p>
-          <a className="hero__cta" href="#latest">
-            Read Today’s Exaggerations
-          </a>
+          <div className="hero__actions">
+            <a className="hero__cta" href="#latest">
+              Read Today’s Exaggerations
+            </a>
+            <a className="hero__secondary" href="mailto:press@rhinodicks.com">
+              Pitch Your Satire
+            </a>
+          </div>
+        </div>
+        <div className="hero__clouds" aria-hidden>
+          <span className="hero__cloud hero__cloud--one" />
+          <span className="hero__cloud hero__cloud--two" />
+          <span className="hero__cloud hero__cloud--three" />
         </div>
         <div className="hero__badge">100% Horn-Free Content*</div>
         <p className="hero__disclaimer">*No explicit anatomy, just big personalities carrying big loads.</p>
       </header>
+
+      <aside className="ticker" aria-label="Industry banter">
+        <div className="ticker__inner">
+          {tickerItems.map((item) => (
+            <span key={item} className="ticker__item">
+              {item}
+            </span>
+          ))}
+        </div>
+      </aside>
 
       <main>
         <section id="mission" className="section">
           <div className="section__inner">
             <h2 className="section__title">The Mission</h2>
             <p>
-              RhinoDicks.com is the planet’s premier satire outlet dedicated to the colossal confidence of rhinoceroses and humans alike who find their gifts both glorious and gravity-heavy. We poke fun at swagger, the logistics of carrying it, and the chauffeurs tasked with keeping eyes on the road while fans keep sending proof.
+              Rhinodicks.com is the planet’s premier satire outlet dedicated to the colossal confidence of rhinoceroses and humans alike who find their gifts both glorious and gravity-heavy. We poke fun at swagger, the logistics of carrying it, and the chauffeurs tasked with keeping eyes on the road while fans keep sending proof.
             </p>
             <div className="mission__grid">
               {missionCards.map((card) => (
@@ -135,7 +238,37 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="columns" className="section">
+        <section id="cloud" className="section">
+          <div className="section__inner section__inner--split">
+            <div>
+              <h2 className="section__title">Rhinodicks Cloud Command Center</h2>
+              <p>
+                Where satire meets SaaS. We built a joke tech stack with just enough product marketing jargon to confuse your vendor reps. Deploy rhino-level resilience, track flex-induced downtime, and align the whole squad around consensual comedy.
+              </p>
+              <ul className="cloud__list">
+                {cloudPerks.map((perk) => (
+                  <li key={perk.title}>
+                    <h3>{perk.title}</h3>
+                    <p>{perk.copy}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="release-notes">
+              <h3>Release Notes</h3>
+              <ul>
+                {releaseNotes.map((note) => (
+                  <li key={note.version}>
+                    <strong>{note.version}</strong>
+                    <p>{note.summary}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section--alt">
           <div className="section__inner columns__grid">
             {columns.map((column) => (
               <article key={column.title} className="column">
@@ -143,6 +276,24 @@ export default function HomePage() {
                 <p>{column.body}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="section__inner testimonials">
+            <h2 className="section__title">Field Notes from the Herd</h2>
+            <div className="testimonials__grid">
+              {testimonials.map((testimonial) => (
+                <figure key={testimonial.name} className="testimonial">
+                  <blockquote>
+                    <p>{testimonial.quote}</p>
+                  </blockquote>
+                  <figcaption>
+                    <span aria-hidden>—</span> {testimonial.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -164,7 +315,7 @@ export default function HomePage() {
       <footer className="footer">
         <div className="footer__inner">
           <p>
-            RhinoDicks.com is a satirical publication. No rhinos were embarrassed in the making of this website, though several demanded lumbar support before interviews.
+            Rhinodicks.com is a satirical publication. No rhinos were embarrassed in the making of this website, though several demanded lumbar support before interviews.
           </p>
           <p className="footer__links">
             <a href="mailto:tips@rhinodicks.com">Send a Tip</a>
@@ -174,7 +325,7 @@ export default function HomePage() {
             <a href="#faq">FAQ</a>
           </p>
           <p className="footer__copyright">
-            &copy; {currentYear} RhinoDicks.com &ndash; Horns high, humor higher, hips stretched.
+            &copy; {currentYear} Rhinodicks.com &ndash; Horns high, humor higher, hips stretched.
           </p>
         </div>
       </footer>
