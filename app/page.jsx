@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 const missionCards = [
   {
@@ -46,7 +46,7 @@ const tallTales = [
 ];
 
 const tickerItems = [
-  "#rd.com Trend Watch: Rhinodicks becomes the IT Channel's hottest inside joke",
+  "#rd.com Trend Watch: Rhinodicks becomes the IT Channel’s hottest inside joke",
   "CloudOps declares \"rhinodicks\" an enterprise-grade status symbol",
   "Limo unions demand ergonomic hazard pay for legendary loads",
   "Analysts predict horn-shaped merch to outpace standard swag by Q4",
@@ -97,7 +97,7 @@ const testimonials = [
   {
     name: "Blaze, Sr. Swagger Engineer",
     quote:
-      "Our IT channel finally has a satire site that speaks fluent innuendo without triggering Compliance. Rhinodicks is the release note I didn't know I needed.",
+      "Our IT channel finally has a satire site that speaks fluent innuendo without triggering Compliance. Rhinodicks is the release note I didn’t know I needed.",
   },
   {
     name: "Rhonda the Rhino Influencer",
@@ -141,27 +141,126 @@ const faqs = [
   {
     question: "Why rhinos and limos?",
     answer:
-      "Because few creatures embody chaotic confidence like a rhinoceros, and no vehicle knows discretion like a tinted town car. It's a match made in oversized heaven.",
+      "Because few creatures embody chaotic confidence like a rhinoceros, and no vehicle knows discretion like a tinted town car. It’s a match made in oversized heaven.",
   },
 ];
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const navRef = useRef(null);
   const currentYear = new Date().getFullYear();
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const handleChange = (event) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    setPrefersReducedMotion(mediaQuery.matches);
+    const supportsEventListener = typeof mediaQuery.addEventListener === 'function';
+
+    if (supportsEventListener) {
+      mediaQuery.addEventListener('change', handleChange);
+    } else {
+      mediaQuery.addListener(handleChange);
+    }
+
+    return () => {
+      if (supportsEventListener) {
+        mediaQuery.removeEventListener('change', handleChange);
+      } else {
+        mediaQuery.removeListener(handleChange);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 360);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleClick = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClick);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 900) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleNavLinkClick = () => {
     setMenuOpen(false);
   };
 
+  const handleScrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  };
+
+  const tickerContent = useMemo(() => {
+    return prefersReducedMotion ? tickerItems : [...tickerItems, ...tickerItems];
+  }, [prefersReducedMotion]);
+
+  const tickerInnerClassName = useMemo(() => {
+    return `ticker__inner${prefersReducedMotion ? ' ticker__inner--still' : ''}`;
+  }, [prefersReducedMotion]);
+
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <header className="hero">
-        <nav className={`nav${menuOpen ? ' nav--open' : ''}`}>
+        <nav ref={navRef} className={`nav${menuOpen ? ' nav--open' : ''}`} aria-label="Primary navigation">
           <div className="nav__brand">
             <span aria-hidden>🦏</span>
             <div>
               <strong>Rhinodicks.com</strong>
-              <span>The IT Channel's favorite satire sandbox</span>
+              <span>The IT Channel’s favorite satire sandbox</span>
             </div>
           </div>
           <button
@@ -170,13 +269,14 @@ export default function HomePage() {
             aria-expanded={menuOpen}
             aria-controls="primary-navigation"
             onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             <span className="nav__toggle-line" aria-hidden />
             <span className="nav__toggle-line" aria-hidden />
             <span className="nav__toggle-line" aria-hidden />
             <span className="sr-only">Toggle navigation</span>
           </button>
-          <ul id="primary-navigation" className="nav__links">
+          <ul id="primary-navigation" className="nav__links" role="list">
             <li>
               <a href="#mission" onClick={handleNavLinkClick}>
                 Mission
@@ -222,19 +322,28 @@ export default function HomePage() {
         </div>
         <div className="hero__badge">100% Horn-Free Content*</div>
         <p className="hero__disclaimer">*No explicit anatomy, just big personalities carrying big loads.</p>
+        {menuOpen && (
+          <button
+            type="button"
+            className="nav__overlay"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close navigation menu"
+          />
+        )}
       </header>
 
-      <aside className="ticker" aria-label="Industry banter">
-        <div className="ticker__inner">
-          {tickerItems.map((item) => (
-            <span key={item} className="ticker__item">
+      <aside className="ticker" aria-label="Industry banter" aria-live="polite">
+        <div className={tickerInnerClassName}>
+          {tickerContent.map((item, index) => (
+            <span key={`${item}-${index}`} className="ticker__item">
+              <span className="sr-only">{index === 0 ? 'Latest headline: ' : ''}</span>
               {item}
             </span>
           ))}
         </div>
       </aside>
 
-      <main>
+      <main id="main-content">
         <section id="mission" className="section">
           <div className="section__inner">
             <h2 className="section__title">The Mission</h2>
@@ -358,6 +467,14 @@ export default function HomePage() {
           </p>
         </div>
       </footer>
+      <button
+        type="button"
+        className={`scroll-top${showScrollTop ? ' scroll-top--visible' : ''}`}
+        onClick={handleScrollTop}
+        aria-label="Scroll back to top"
+      >
+        <span aria-hidden>↑</span>
+      </button>
     </>
   );
 }
