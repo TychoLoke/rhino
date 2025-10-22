@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 const missionCards = [
   {
     title: "Burden of Bravado",
@@ -142,12 +146,17 @@ const faqs = [
 ];
 
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const currentYear = new Date().getFullYear();
+
+  const handleNavLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <>
       <header className="hero">
-        <nav className="nav">
+        <nav className={`nav${menuOpen ? ' nav--open' : ''}`}>
           <div className="nav__brand">
             <span aria-hidden>🦏</span>
             <div>
@@ -155,18 +164,38 @@ export default function HomePage() {
               <span>The IT Channel's favorite satire sandbox</span>
             </div>
           </div>
-          <ul className="nav__links">
+          <button
+            type="button"
+            className="nav__toggle"
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <span className="nav__toggle-line" aria-hidden />
+            <span className="nav__toggle-line" aria-hidden />
+            <span className="nav__toggle-line" aria-hidden />
+            <span className="sr-only">Toggle navigation</span>
+          </button>
+          <ul id="primary-navigation" className="nav__links">
             <li>
-              <a href="#mission">Mission</a>
+              <a href="#mission" onClick={handleNavLinkClick}>
+                Mission
+              </a>
             </li>
             <li>
-              <a href="#latest">Tall Tales</a>
+              <a href="#latest" onClick={handleNavLinkClick}>
+                Tall Tales
+              </a>
             </li>
             <li>
-              <a href="#cloud">Cloud Suite</a>
+              <a href="#cloud" onClick={handleNavLinkClick}>
+                Cloud Suite
+              </a>
             </li>
             <li>
-              <a href="#faq">FAQ</a>
+              <a href="#faq" onClick={handleNavLinkClick}>
+                FAQ
+              </a>
             </li>
           </ul>
         </nav>
