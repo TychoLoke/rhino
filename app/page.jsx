@@ -257,10 +257,12 @@ export default function HomePage() {
       <header className="hero">
         <nav ref={navRef} className={`nav${menuOpen ? ' nav--open' : ''}`} aria-label="Primary navigation">
           <div className="nav__brand">
-            <span aria-hidden>🦏</span>
-            <div>
+            <span className="nav__logo" aria-hidden>
+              🦏
+            </span>
+            <div className="nav__brand-copy">
               <strong>Rhinodicks.com</strong>
-              <span>The IT Channel’s favorite satire sandbox</span>
+              <p>Premium parody for over-provisioned egos.</p>
             </div>
           </div>
           <button
@@ -276,36 +278,49 @@ export default function HomePage() {
             <span className="nav__toggle-line" aria-hidden />
             <span className="sr-only">Toggle navigation</span>
           </button>
-          <ul id="primary-navigation" className="nav__links" role="list">
-            <li>
-              <a href="#mission" onClick={handleNavLinkClick}>
-                Mission
+          <div className="nav__menu">
+            <ul id="primary-navigation" className="nav__links" role="list">
+              <li>
+                <a href="#mission" onClick={handleNavLinkClick}>
+                  Mission
+                </a>
+              </li>
+              <li>
+                <a href="#latest" onClick={handleNavLinkClick}>
+                  Tall Tales
+                </a>
+              </li>
+              <li>
+                <a href="#cloud" onClick={handleNavLinkClick}>
+                  Cloud Suite
+                </a>
+              </li>
+              <li>
+                <a href="#faq" onClick={handleNavLinkClick}>
+                  FAQ
+                </a>
+              </li>
+            </ul>
+            <div className="nav__actions">
+              <a className="nav__cta" href="mailto:concierge@rhinodicks.com">
+                Book the Concierge
               </a>
-            </li>
-            <li>
-              <a href="#latest" onClick={handleNavLinkClick}>
-                Tall Tales
-              </a>
-            </li>
-            <li>
-              <a href="#cloud" onClick={handleNavLinkClick}>
-                Cloud Suite
-              </a>
-            </li>
-            <li>
-              <a href="#faq" onClick={handleNavLinkClick}>
-                FAQ
-              </a>
-            </li>
-          </ul>
+              <p className="nav__promise">Nightly dispatches for legendary loads.</p>
+            </div>
+          </div>
         </nav>
 
         <div className="hero__content">
-          <p className="hero__tagline">A SATIRICAL NEWSROOM FOR THE PERPETUALLY OVERPACKED</p>
+          <p className="hero__tagline">THE SATIRE SUITE FOR THE PERPETUALLY OVERPACKED</p>
           <h1 className="hero__title">Rhinodicks.com</h1>
           <p className="hero__subtitle">
-            A lovingly ludicrous media brand chronicling the mythical heft of rhinodicks &mdash; the industry term every IT reseller is suddenly using to describe outsized bravado and bandwidth.
+            Where rhinoceros-level swagger meets enterprise-grade storytelling. We chronicle the mythic heft, the dutiful drivers, and the IT channels that trade swagger metrics like stock tickers.
           </p>
+          <div className="hero__highlights" role="presentation" aria-hidden>
+            <span>Luxury limo lore</span>
+            <span>Observability for egos</span>
+            <span>Consent-forward comedy</span>
+          </div>
           <div className="hero__actions">
             <a className="hero__cta" href="#latest">
               Read Today’s Exaggerations
@@ -321,7 +336,7 @@ export default function HomePage() {
           <span className="hero__cloud hero__cloud--three" />
         </div>
         <div className="hero__badge">100% Horn-Free Content*</div>
-        <p className="hero__disclaimer">*No explicit anatomy, just big personalities carrying big loads.</p>
+        <p className="hero__disclaimer">*All innuendo, zero explicit anatomy—just ergonomics and egos.</p>
         {menuOpen && (
           <button
             type="button"
@@ -348,7 +363,7 @@ export default function HomePage() {
           <div className="section__inner">
             <h2 className="section__title">The Mission</h2>
             <p>
-              Rhinodicks.com is the planet’s premier satire outlet dedicated to the colossal confidence of rhinoceroses and humans alike who find their gifts both glorious and gravity-heavy. We poke fun at swagger, the logistics of carrying it, and the chauffeurs tasked with keeping eyes on the road while fans keep sending proof.
+              Rhinodicks.com is the IT channel’s velvet-rope satire lounge—curated for leaders whose swagger needs structural engineering. We celebrate the spectacle, toast the teams who keep the convoy balanced, and report on chauffeur heroics with the reverence normally reserved for product launches.
             </p>
             <div className="mission__grid">
               {missionCards.map((card) => (
@@ -381,7 +396,7 @@ export default function HomePage() {
             <div>
               <h2 className="section__title">Rhinodicks Cloud Command Center</h2>
               <p>
-                Where satire meets SaaS. We built a joke tech stack with just enough product marketing jargon to confuse your vendor reps. Deploy rhino-level resilience, track flex-induced downtime, and align the whole squad around consensual comedy.
+                Where satire meets SaaS. We’ve architected a fictional platform that speaks fluent bravado dashboards, complete with chauffeur wellness KPIs and ego load balancers. Deploy rhino-level resilience, track flex-induced downtime, and synchronize every stakeholder on consent-forward comedy.
               </p>
               <ul className="cloud__list">
                 {cloudPerks.map((perk) => (
@@ -453,7 +468,7 @@ export default function HomePage() {
       <footer className="footer">
         <div className="footer__inner">
           <p>
-            Rhinodicks.com is a satirical publication. No rhinos were embarrassed in the making of this website, though several demanded lumbar support before interviews.
+            Rhinodicks.com is a satirical publication. No rhinos were embarrassed in the making of this website—though several negotiated ergonomic seating, aromatherapy, and a dedicated hype squad before interviews.
           </p>
           <p className="footer__links">
             <a href="mailto:tips@rhinodicks.com">Send a Tip</a>
